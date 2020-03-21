@@ -1,0 +1,22 @@
+[package]
+name = "actix-web-jwt-example"
+version = "0.1.0"
+authors = ["emreyalvac <emre.stress@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-web = "3.0.0-alpha.1"
+actix-rt = "1.0.0"
+mongodb = "0.9.2"
+bson = "0.14.1"
+lazy_static = "1.4.0"
+serde = "1.0.105"
+serde_json = "1.0.48"
+jsonwebtoken = "7.1.0"
+envfile = "0.2.1"
+chrono = "0.4.11"
+rust-crypto = "0.2.36"
+uuid = { version = "0.8", features = ["serde", "v4"] }
+futures = "0.3.4"
