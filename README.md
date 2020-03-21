@@ -86,7 +86,7 @@ curl -X GET -H 'Content-Type: application/json' \
 ```
 curl -X GET -H 'Content-Type: application/json' \
   -H 'Authorization: bearer TOKEN' \
-  -i 'http://127.0.0.1:8080/user/userInformations'
+  -i 'http://127.0.0.1:8080/user/protectedRoute'
  ```
 ### Response
 ```
