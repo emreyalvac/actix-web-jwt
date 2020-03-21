@@ -87,7 +87,7 @@ impl IUserRepository for UserRepository {
                 let user_id = uuid::Uuid::new_v4().to_string();
                 let _ex = db.collection(collection_name.as_str()).insert_one(doc! {"user_id": user_id, "name": user.name, "surname": user.surname, "email": user.email, "password": hash_pw, "phone": "", "birth_date": "" }, None);
                 match _ex {
-                    Ok(_) => Response { status: true, message: "Registered.".to_string() },
+                    Ok(_) => Response { status: true, message: "Register successful.".to_string() },
                     Err(_) => Response { status: false, message: "Something wrong.".to_string() }
                 }
             }
