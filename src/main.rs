@@ -3,8 +3,8 @@ extern crate bson;
 
 use actix_web::http::ContentEncoding;
 use actix_web::{middleware, web, App, HttpServer};
-use envfile::EnvFile;
-use std::path::Path;
+
+
 
 mod config;
 mod db;

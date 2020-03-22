@@ -7,7 +7,7 @@ use crypto::sha2::Sha256;
 use jsonwebtoken::{decode, encode, Algorithm, DecodingKey, EncodingKey, Header, Validation};
 use mongodb::error::Error;
 use mongodb::Client;
-use std::path::Path;
+
 
 pub trait IUserRepository {
     fn find_user_with_email(&self, email: String) -> Result<Option<User>, Error>;
@@ -69,7 +69,7 @@ impl IUserRepository for UserRepository {
                     .unwrap();
                     Ok(LoginResponse {
                         status: true,
-                        token: token.to_string(),
+                        token,
                         message: "Başarıyla giriş yaptınız.".to_string(),
                     })
                 } else {
@@ -91,7 +91,7 @@ impl IUserRepository for UserRepository {
             .unwrap();
         match _exist {
             Some(_) => {
-                return Response {
+                Response {
                     message: "This e-mail is using by some user, please enter another e-mail."
                         .to_string(),
                     status: false,
@@ -126,7 +126,7 @@ impl IUserRepository for UserRepository {
         let _var = _config.get_config_with_key("SECRET_KEY");
         let key = _var.as_bytes();
         let _decode = decode::<Claims>(
-            token.as_ref(),
+            token,
             &DecodingKey::from_secret(key),
             &Validation::new(Algorithm::HS256),
         );

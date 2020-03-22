@@ -13,12 +13,12 @@ async fn login(user: web::Json<Login>) -> HttpResponse {
     };
     let proc = _repository.login(user.into_inner());
 
-    return match proc {
+    match proc {
         Ok(_) => HttpResponse::Ok().json(proc.unwrap()),
         Err(_) => HttpResponse::Ok()
             .status(StatusCode::from_u16(401).unwrap())
             .json(proc.unwrap_err()),
-    };
+    }
 }
 
 #[post("/register")]

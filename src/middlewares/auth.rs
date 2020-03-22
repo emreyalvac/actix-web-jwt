@@ -22,12 +22,12 @@ impl FromRequest for AuthorizationService {
                 let _var = _config.get_config_with_key("SECRET_KEY");
                 let key = _var.as_bytes();
                 match decode::<Claims>(
-                    token.as_ref(),
+                    token,
                     &DecodingKey::from_secret(key),
                     &Validation::new(Algorithm::HS256),
                 ) {
-                    Ok(token) => ok(AuthorizationService),
-                    Err(e) => err(ErrorUnauthorized("invalid token!")),
+                    Ok(_token) => ok(AuthorizationService),
+                    Err(_e) => err(ErrorUnauthorized("invalid token!")),
                 }
             }
             None => err(ErrorUnauthorized("blocked!")),
