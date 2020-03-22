@@ -2,6 +2,8 @@
 
 Simple backend app with Actix-web, JWT and MongoDB
 
+(JWT Token, Protect Route, Login & Register)
+
 *While developing the web service, I couldn't find good documentation or example (or up-to-date) to integrate jwt into my code. That's why I developed this example :)*
 
 
