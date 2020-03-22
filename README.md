@@ -2,7 +2,7 @@
 
 Simple backend app with Actix-web, JWT and MongoDB
 
-*While developing the web service, I couldn't find good documentation or example to integrate jwt into my code. That's why I developed this example :)*
+*While developing the web service, I couldn't find good documentation or example (or up-to-date) to integrate jwt into my code. That's why I developed this example :)*
 
 
 
