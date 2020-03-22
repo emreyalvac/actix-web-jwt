@@ -1,7 +1,6 @@
 use lazy_static::lazy_static;
 use mongodb::Client;
 
-
 lazy_static! {
     static ref LAZY_CONNECTION: Client = Client::with_uri_str("mongodb://localhost:27017").unwrap();
 }

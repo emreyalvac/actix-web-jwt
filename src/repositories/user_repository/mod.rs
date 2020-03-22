@@ -1,5 +1,5 @@
-mod user_repository;
 mod routes;
+mod user_repository;
 
-pub use user_repository::{IUserRepository, UserRepository};
 pub use routes::init_routes;
+pub use user_repository::{IUserRepository, UserRepository};

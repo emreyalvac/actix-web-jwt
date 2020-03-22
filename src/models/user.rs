@@ -1,4 +1,4 @@
-use serde::{Serialize, Deserialize};
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct User {
@@ -16,7 +16,7 @@ pub struct Login {
     pub email: String,
     pub password: String,
     #[serde(default)]
-    pub remember_me: bool
+    pub remember_me: bool,
 }
 
 #[derive(Debug, Serialize, Deserialize)]

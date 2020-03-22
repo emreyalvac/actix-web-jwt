@@ -1,10 +1,9 @@
-use actix_web::{FromRequest, Error, HttpRequest, dev};
-use futures::future::{ok, err, Ready};
-use actix_web::error::ErrorUnauthorized;
-use jsonwebtoken::{decode, DecodingKey, Validation, Algorithm};
 use crate::config::{Config, IConfig};
 use crate::models::user::Claims;
-
+use actix_web::error::ErrorUnauthorized;
+use actix_web::{dev, Error, FromRequest, HttpRequest};
+use futures::future::{err, ok, Ready};
+use jsonwebtoken::{decode, Algorithm, DecodingKey, Validation};
 
 pub struct AuthorizationService;
 
@@ -22,18 +21,16 @@ impl FromRequest for AuthorizationService {
                 let _config: Config = Config {};
                 let _var = _config.get_config_with_key("SECRET_KEY");
                 let key = _var.as_bytes();
-                match decode::<Claims>(token.as_ref(), &DecodingKey::from_secret(key), &Validation::new(Algorithm::HS256)) {
-                    Ok(token) => {
-                        ok(AuthorizationService)
-                    }
-                    Err(e) => {
-                        err(ErrorUnauthorized("invalid token!"))
-                    }
+                match decode::<Claims>(
+                    token.as_ref(),
+                    &DecodingKey::from_secret(key),
+                    &Validation::new(Algorithm::HS256),
+                ) {
+                    Ok(token) => ok(AuthorizationService),
+                    Err(e) => err(ErrorUnauthorized("invalid token!")),
                 }
             }
-            None => {
-                err(ErrorUnauthorized("blocked!"))
-            }
+            None => err(ErrorUnauthorized("blocked!")),
         }
     }
 }
