@@ -66,7 +66,7 @@ curl -X POST -i 'http://127.0.0.1:8080/user/login' \
 ---
 ```
 curl -X GET -H 'Content-Type: application/json' \
-  -H 'Authorization: bearer TOKEN' \
+  -H 'Authorization: Bearer TOKEN' \
   -i 'http://127.0.0.1:8080/user/userInformations'
  ```
 ### Response
@@ -85,7 +85,7 @@ curl -X GET -H 'Content-Type: application/json' \
 # `POST /user/protectedRoute`
 ```
 curl -X GET -H 'Content-Type: application/json' \
-  -H 'Authorization: bearer TOKEN' \
+  -H 'Authorization: Bearer TOKEN' \
   -i 'http://127.0.0.1:8080/user/protectedRoute'
  ```
 ### Response
