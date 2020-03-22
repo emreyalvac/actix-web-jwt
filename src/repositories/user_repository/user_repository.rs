@@ -66,11 +66,11 @@ impl IUserRepository for UserRepository {
                         &my_claims,
                         &EncodingKey::from_secret(key),
                     )
-                    .unwrap();
+                        .unwrap();
                     Ok(LoginResponse {
                         status: true,
                         token,
-                        message: "Başarıyla giriş yaptınız.".to_string(),
+                        message: "You have successfully logged in.".to_string(),
                     })
                 } else {
                     Err(Response {
