@@ -2,6 +2,10 @@
 
 Simple backend app with Actix-web, JWT and MongoDB
 
+*While developing the web service, I couldn't find good documentation or example to integrate jwt into my code. That's why I developed this example :)*
+
+
+
 # Require
 
   - [MongoDB](https://www.mongodb.com/)
