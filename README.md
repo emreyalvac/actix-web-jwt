@@ -16,7 +16,7 @@ Simple backend app with Actix-web, JWT and MongoDB
 # How to run
   - Create database and collection in mongodb.
   - Replace `DATABASE_NAME` and `USER_COLLECTION_NAME` with your database settings in `config.env` file. 
-  - If you want to change `SECRET_KEY` for `JWT`, also you can change in `config.env` file.
+  - If you want to change `SECRET_KEY` for `JWT`, you can change in `config.env` file.
 
 # .env file
 ```
